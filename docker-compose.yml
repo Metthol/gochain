@@ -13,6 +13,11 @@ services:
       - '/var/lib/postgresql/data'
     environment:
       POSTGRES_PASSWORD: 1234
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', 'postgres']
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
   app:
     build: .
@@ -25,5 +30,10 @@ services:
       PORT: 8000
       POSTGRES_PASSWORD: 1234
       POSTGRES_URL: postgresql
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:8000/', '||', 'exit', '1']
+      interval: 30s
+      timeout: 10s
+      retries: 5
     depends_on:
       - 'postgresql'

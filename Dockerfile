@@ -15,6 +15,6 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app
 FROM scratch
 
 EXPOSE 8000
-COPY --from=builder /go .
+COPY --from=builder /go/app .
 COPY blockchain.html /
-CMD /go/app
+CMD ["./app"]
