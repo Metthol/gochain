@@ -10,7 +10,7 @@ services:
     networks:
       - 'test'
     volumes:
-      - '/var/lib/postgresql/data'
+      - './postgresql/:/var/lib/postgresql/data'
     environment:
       POSTGRES_PASSWORD: 1234
     healthcheck:
