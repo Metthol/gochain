@@ -7,6 +7,7 @@ services:
   postgresql:
     image: postgres:latest
     restart: always
+    user: 1000:1000
     networks:
       - 'test'
     volumes:
@@ -31,7 +32,7 @@ services:
       POSTGRES_PASSWORD: 1234
       POSTGRES_URL: postgresql
     healthcheck:
-      test: ['CMD', 'curl', '-f', 'http://localhost:8000/', '||', 'exit', '1']
+      test: ['CMD', 'curl', '-f', 'http://localhost:8000/']
       interval: 30s
       timeout: 10s
       retries: 5
