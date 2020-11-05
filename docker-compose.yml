@@ -42,9 +42,9 @@ services:
   swagger:
     image: swaggerapi/swagger-ui
     ports:
-      - '8000:8000'
+      - '8080:8080'
     volumes:
       - './swagger/:/swagger'
     environment:
-      - 'API_URL=0.0.0.0'
-      - 'SWAGGER_JSON=/swagger/openapi.yml'
+      API_URL: openapi.yml
+      SWAGGER_JSON: /swagger/openapi.yaml

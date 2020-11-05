@@ -1,3 +1,3 @@
 all:
-	mkdir postgresql
+	mkdir -p postgresql
 	docker-compose up --build
