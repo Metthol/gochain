@@ -14,6 +14,8 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app
 
 FROM scratch
 
+ENV IP=0.0.0.0
+ENV PORT=8000
 EXPOSE 8000
 COPY --from=builder /go/app .
 COPY blockchain.html /

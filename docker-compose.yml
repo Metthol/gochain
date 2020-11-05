@@ -47,4 +47,4 @@ services:
       - './swagger/:/swagger'
     environment:
       API_URL: openapi.yml
-      SWAGGER_JSON: /swagger/openapi.yaml
+      SWAGGER_JSON: /swagger/openapi.yml
